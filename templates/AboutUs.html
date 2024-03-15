@@ -1,0 +1,106 @@
+<!-- Inference.html -->
+
+{% extends "Base.html" %}
+
+{% block title %}채팅 템플릿{% endblock %}
+
+{% block content %}
+<div class="card-container">
+    <div class="card">
+      <div class="card-image">
+        <img src="../static/Images/팀로고.png" alt="Profile Image">
+      </div>
+      <div class="card-info">
+        <h3>주용규</h3>
+        <p>기술스택:
+          <img src="../static/Images/GoogleColab_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/LangChain_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/LINUX_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/LLaMa_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/PYTHON_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/QLORA_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/VisualStudioCode_Logo.png" alt="Python" class="tech-logo">
+        </p>
+        <p>메일주소: 	geass924@gmail.com</p>
+        <p>깃허브주소: <a href="https://github.com/voxmvnt/XwenA">github.com/voxmvnt/XwenA</a></p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image">
+        <img src="../static/Images/팀로고.png" alt="Profile Image">
+      </div>
+      <div class="card-info">
+        <h3>최재빈</h3>
+        <p>기술스택:
+          <img src="../static/Images/GoogleColab_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/LangChain_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/LINUX_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/LLaMa_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/PYTHON_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/QLORA_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/VisualStudioCode_Logo.png" alt="Python" class="tech-logo">
+        </p>
+        <p>메일주소: moviemanejeongdo@gmail.com</p>
+        <p>깃허브주소: <a href="https://github.com/moviemanejeongdo">github.com/moviemanejeongdo</a></p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image">
+        <img src="../static/Images/팀로고.png" alt="Profile Image">
+      </div>
+      <div class="card-info">
+        <h3>윤성민</h3>
+        <p>기술스택:
+          <img src="../static/Images/GoogleColab_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/LangChain_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/LINUX_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/LLaMa_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/PYTHON_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/QLORA_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/VisualStudioCode_Logo.png" alt="Python" class="tech-logo">
+        </p>
+        <p>메일주소: dama41747@gmail.com</p>
+        <p>깃허브주소: <a href="https://github.com/kitaysm/kita_240109">github.com/kitaysm/kita_240109</a></p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image">
+        <img src="../static/Images/팀로고.png" alt="Profile Image">
+      </div>
+      <div class="card-info">
+        <h3>서영우</h3>
+        <p>기술스택:
+          <img src="../static/Images/GoogleColab_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/LangChain_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/LINUX_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/LLaMa_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/PYTHON_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/QLORA_Logo.png" alt="Python" class="tech-logo">
+          <img src="../static/Images/VisualStudioCode_Logo.png" alt="Python" class="tech-logo">
+        </p>
+        <p>메일주소: koito159@gmail.com</p>
+        <p>깃허브주소: <a href="https://github.com/morakcook/XwenA">github.com/morakcook/XwenA</a></p>
+      </div>
+    </div>
+</div>
+<script>
+    document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    const rotateX = y / -10;
+    const rotateY = x / 10;
+
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'rotateX(0) rotateY(0)';
+  });
+});
+</script>
+{% endblock %}
+
+

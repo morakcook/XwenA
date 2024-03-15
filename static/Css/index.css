@@ -1,0 +1,386 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-image: url("../Images/index.webp"); /* 배경 이미지 설정 */
+    background-size: cover; /* 배경 이미지가 화면을 꽉 채우도록 */
+    background-position: center; /* 이미지가 화면 중앙에 오도록 */
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 컨테이너 사이의 간격 */
+}
+header, footer {
+    position: fixed;
+    width: 100%;
+    /* 더 진한 푸른색으로 변경, 광택과 유리 느낌 강화 */
+    background: linear-gradient(rgba(0, 0, 60, 0.6), rgba(0, 0, 120, 0.6)), url('glass_texture.png');
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    /* 광택 효과를 더 강하게 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), inset 0 4px 10px rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px); /* 배경 흐림 효과로 유리같은 느낌 증가 */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* header용 */
+    border-top: 1px solid rgba(255, 255, 255, 0.3); /* footer용 */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo, .login-status {
+    flex: 1;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    flex: 2;
+}
+.navbar a {
+    color: #fff; /* 메뉴 텍스트 색상 */
+    padding: 0 15px; /* 메뉴 항목 간격 조정 */
+    text-decoration: none; /* 밑줄 제거 */
+    text-align: center;
+    display: inline-block;
+    font-size: 18px; /* 글꼴 크기 조정 */
+    font-weight: 600; /* 글꼴 두께 조정 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 입체감을 주는 텍스트 그림자 */
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out; /* 상호작용 효과 */
+}
+
+.navbar a:hover, .navbar a:focus {
+    color: #cceeff; /* 마우스 오버 시 색상 변경 */
+    text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.6); /* 마우스 오버 시 텍스트 그림자 변경 */
+}
+
+
+footer {
+    bottom: 0;
+}
+
+
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 내용과 입력 필드 사이의 공간 최적화 */
+    width: 60%;
+    height: 70%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.chat-messages {
+    width: 100%;
+    height: auto;
+    flex-grow: 1; /* 채팅 메시지 영역이 동적으로 크기 조절 */
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.chat-input {
+    width: calc(100% - 20px); /* 컨테이너에 맞춰 넓이 조정, 양쪽에 10px의 패딩 고려 */
+    padding: 10px;
+    border: 2px solid #007BFF; /* 테두리 더 명확하고 진한 색상으로 설정 */
+    border-radius: 5px; /* 테두리 둥글게 */
+    background-color: rgba(255, 255, 255, 0.8); /* 투명도 조정 */
+    margin: 0; /* 하단에 꽉 차게 */
+    outline: none; /* 선택 시 발생하는 기본 테두리 제거 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 약간의 그림자 효과로 깊이감 추가 */
+    color: #333; /* 입력 텍스트 색상 */
+}
+
+.logo img {
+    height: 50px; /* 로고 이미지 높이 조정 */
+}
+
+.login-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-name {
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.login-button {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.login-status {
+    margin-left: auto; /* 자동으로 왼쪽 마진을 추가하여 오른쪽으로 이동 */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    position: relative;
+    height: 80px; /* 로고 영역 높이 조정 */
+    width: 200px; /* 로고 영역 너비 조정 */
+}
+
+.logo img {
+    position: flex;
+    height: 100%; /* 부모 요소인 .logo에 맞게 높이 조정 */
+    width: auto; /* 비율 유지 */
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 60%;
+    height: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    perspective: 1000px; /* 3D 효과를 위한 원근감 추가 */
+  }
+  
+  
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 48%;
+    height: 250px;
+    margin: 1%;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    background: linear-gradient(145deg, #e0e0e0, #f8f8f8);
+    transition: transform 0.5s ease;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100px; /* 이미지 크기 조정 */
+    height: 100px; /* 이미지 크기 조정 */
+    border-radius: 50%;
+    position: absolute;
+    right: 15px; /* 위치 조정 */
+    top: 15px; /* 위치 조정 */
+}
+
+.card-info {
+    position: absolute;
+    left: 15px; /* 위치 조정 */
+    top: 15px; /* 위치 조정 */
+    max-width: calc(100% - 130px); /* 이미지 영역을 제외한 최대 너비 설정 */
+}
+
+.card-info h3, .card-info p, .card-info a {
+    margin: 0 0 10px 0; /* 마진 조정 */
+    word-wrap: break-word; /* 긴 텍스트 처리 */
+}
+
+.card-info h3 {
+    font-size: 1.2rem; /* 제목 텍스트 크기 조정 */
+}
+
+.card-info p, .card-info a {
+    font-size: 1rem; /* 내용 텍스트 크기 조정 */
+}
+
+.tech-logo {
+    height: 24px; /* 기술 로고 크기 조정 */
+    margin-left: 5px;
+}
+
+
+.card:hover {
+transform: rotateY(20deg) rotateX(10deg); /* Y축과 X축을 기준으로 회전 */
+}
+
+.card::after, .card::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(60deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+animation: shine 2s infinite linear;
+}
+
+.card::before {
+background: linear-gradient(120deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+animation-delay: -1s;
+}
+    
+@keyframes shine {
+0% {
+    transform: translateX(-100%);
+}
+50% {
+    transform: translateX(100%);
+}
+100% {
+    transform: translateX(-100%);
+}
+}
+  
+  
+  
+  
+  
+.pdf-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 내용과 입력 필드 사이의 공간 최적화 */
+    width: 60%;
+    height: 70%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+
+table {
+    width: 100%; /* 테이블 너비를 컨테이너에 맞춤 */
+    border-collapse: collapse; /* 테이블 경계 스타일 */
+}
+
+th, td {
+    padding: 8px; /* 셀 패딩 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+    border-bottom: 1px solid #ddd; /* 하단 경계선 스타일 */
+}
+
+th {
+    background-color: #f2f2f2; /* 헤더 배경색 */
+}
+
+tr:hover {background-color: #f5f5f5;} /* 마우스 호버시 행 배경색 변경 */
+
+thead th {
+    background-color: #5dcc7e;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.table-container {
+    width: 80%;
+    height: 40%;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center; /* 센터 정렬 */
+    max-width: 100%; /* 컨테이너 최대 너비 설정 */
+    max-height: 70vh; /* 뷰포트 높이의 70%를 최대 높이로 설정 */    
+    margin: auto;
+    overflow: auto; /* 내용이 넘칠 경우 스크롤바 표시 */
+    padding-right: 20px;
+    padding-left: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.static-graph-container {
+    width: 60%;
+    height: 30%;
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center; /* 센터 정렬 */
+    max-width: 100%; /* 컨테이너 최대 너비 설정 */
+    max-height: 70vh; /* 뷰포트 높이의 70%를 최대 높이로 설정 */
+    margin: auto;
+    overflow: auto; /* 내용이 넘칠 경우 스크롤바 표시 */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.graph-container {
+    width: 15%;
+    height: 30%;
+    position: absolute;
+    top: 30%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 센터 정렬 */
+    max-width: 100%; /* 컨테이너 최대 너비 설정 */
+    max-height: 70vh; /* 뷰포트 높이의 70%를 최대 높이로 설정 */
+    margin: auto;
+    overflow: auto; /* 내용이 넘칠 경우 스크롤바 표시 */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 채팅 메시지의 스타일 조정 */
+.chat-messages p {
+    font-size: 1.2rem; /* 텍스트 크기를 1.2rem으로 조정 */
+    color: #333; /* 텍스트 색상을 조정 */
+    margin-bottom: 10px; /* 각 메시지 하단의 여백 */
+}
+
+/* 채팅 입력 필드의 스타일 조정 */
+.chat-input {
+    font-size: 1.1rem; /* 입력 필드 텍스트 크기를 1.1rem으로 조정 */
+    color: #333; /* 입력 필드 텍스트 색상을 조정 */
+    padding: 12px 15px; /* 입력 필드 내부의 패딩 조정 */
+    /* 나머지 스타일은 기존 설정 유지 */
+}

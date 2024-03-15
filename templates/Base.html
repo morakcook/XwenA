@@ -1,0 +1,36 @@
+<!-- base.html -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}채팅 템플릿{% endblock %}</title>
+    <link rel="stylesheet" href="../static/Css/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="../static/Images/XWENa.gif" /></div>
+        <nav class="navbar">
+            <a href="Inference">Inference</a>
+            <a href="TestLog">Test Log</a>
+            <a href="History">History</a>
+            <a href="AboutUs">About Us</a>
+        </nav>
+        <div class="login-status">
+            <span class="user-name">사용자 이름</span>
+            <a href="#login" class="login-button">로그인</a>
+        </div>
+    </header>
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer>
+        <p>© 2024 XwenA. 모든 권리 보유.</p>
+    </footer>
+</body>
+</html>

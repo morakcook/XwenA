@@ -1,0 +1,28 @@
+<!-- Inference.html -->
+
+{% extends "Base.html" %}
+
+{% block title %}채팅 템플릿{% endblock %}
+
+{% block content %}
+<div class="pdf-container">
+    <iframe id="pdfViewer" width="100%" height="100%" src="../static/Images/Dacon_short.pdf"></iframe>
+</div>
+{% endblock %}
+
+<script>
+    // iframe 요소 가져오기
+    var iframe = document.getElementById('pdfViewer');
+
+    // iframe 내부 document 가져오기
+    var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+    // iframe이 로드될 때 실행되는 함수
+    iframe.onload = function() {
+        // iframe 내부 document의 body 가져오기
+        var iframeBody = iframeDoc.body;
+
+        // PDF를 확대하기 위해 스타일 설정
+        iframeBody.style.zoom = '113%'; // 113% 확대
+    };
+</script>

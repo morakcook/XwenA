@@ -1,0 +1,45 @@
+<!-- Inference.html -->
+
+{% extends "Base.html" %}
+
+{% block title %}채팅 템플릿{% endblock %}
+
+{% block content %}
+<div class="chat-container">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <div class="chat-messages">
+        <!-- 채팅 메시지가 여기에 표시됩니다. -->
+        <p id="generation" class="mb-0"></p>
+    </div>
+    <input type="text" class="chat-input" aria-describedby="basic-addon3" id="prompt" onkeypress="if(event.keyCode==13) {api_call(); return false;}" name="input" placeholder="프롬프트를 입력하세요">
+
+    <div id="run" class="spinner-border text-secondary m-2" role="status" style="visibility: hidden; border-top-left-radius: 50%; border-top-right-radius: 50%; border-bottom-left-radius: 50%; border-bottom-right-radius: 50%;">
+        <span class="visually-hidden">computing...</span>
+    </div>
+</div>
+<script>
+    function api_call() {
+        var sentence = $("#prompt").val();
+        var input = {prompt: sentence};
+        $('#run').css('visibility', "visible");
+        console.log(input);
+        $.ajax({
+            url: "/api",
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(input),
+            success: function( data, textStatus, jQxhr ){
+                $('#generation').html( data.generated_texts );
+                $('#prompt').val(data.prompt);
+                $('#run').css('visibility', "hidden");
+            },
+            error: function( jqXhr, textStatus, errorThrown ){
+                $('#result').html( "처리 중 오류가 발생했습니다." );
+                console.log( errorThrown );
+            }
+        });
+    }
+</script>
+{% endblock %}
+
+
